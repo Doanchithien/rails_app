@@ -1,0 +1,22 @@
+<div class="nested-fields">
+<div class="field form-group">
+  <%= form.label :type %>
+  <%= form.text_field :type_name,class:"form-control" %>
+</div>
+
+    <div id="properties">
+      <%= form.fields_for :properties do |property|%>
+          <%= render "properties_fields", form: property%>
+      <%end%>
+      <div class="field form-group">
+          <%= link_to_add_association 'Add property', form, :properties, form_name: 'form',   partial: 'properties_fields',class:"btn btn-info"%>
+      </div>
+    </div>
+<div class="field form-group">
+  <%= link_to_remove_association "Remove type", form, class:"btn btn-dark" %>
+<div>
+<div class="field form-group">
+    <%= form.label "Detail image" %>
+    <%= form.file_field :image, class:"form-control" %>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="nested-fields">
+<div class="field form-group">
+  <%= form.label :value %>
+  <%= form.text_field :value,class:"form-control" %>
+  </div>
+<div class="field form-group">
+  <%= form.label "in stock" %>
+  <%= form.number_field :in_stock,class:"form-control" %>
+</div>
+<div class="field form-group">
+  <%= link_to_remove_association "Remove property", form,class:"btn btn-dark" %>
+</div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_093038) do
+ActiveRecord::Schema.define(version: 2021_11_24_074016) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2021_11_15_093038) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "sku"
     t.string "title"
@@ -47,8 +53,30 @@ ActiveRecord::Schema.define(version: 2021_11_15_093038) do
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "value"
+    t.integer "in_stock"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "type_id", null: false
+    t.index ["type_id"], name: "index_properties_on_type_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "type_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_types_on_product_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "products", "categories"
+  add_foreign_key "properties", "types"
+  add_foreign_key "types", "products"
 end

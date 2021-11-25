@@ -19,6 +19,17 @@
   <strong>Quantity:</strong>
   <%= @product.quantity %>
 </p>
+<p>
+   <strong>Type:</strong>
+   <% @product.types.each do |type|%>
+     <li> <%= type.type_name%></li>
+     <%= image_tag(type.image) if type.image.present?%>
+      <%type.properties.each do |property|%>
+         <p>Value : <%= property.value%></p>
+         <p>In stock :<%= property.in_stock%></p>
+      <%end%>
+   <%end%>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

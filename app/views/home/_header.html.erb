@@ -12,6 +12,16 @@
       <li class="nav-item">
         <%= link_to "Products",products_path,class:"nav-link"%>
       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Category
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% Category.all.each do |category|%>
+           <%= link_to "#{category.name}", "/categories/#{category.id}",class:"dropdown-item"%>
+          <%end%>
+        </div>
+      </li>
     </ul>
     <%= form_tag(products_path, :method => "get") do %>
      <%= text_field_tag :search, params[:search], placeholder: "Search products" %>
