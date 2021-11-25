@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    before_create {|product| product.title = product.title.capitalize!}
+    before_create {|product| product.title = product.title.capitalize}
     has_one_attached :image
     belongs_to :category, optional: true
     has_many :types,dependent: :destroy

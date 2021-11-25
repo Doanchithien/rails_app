@@ -23132,3 +23132,1057 @@ Completed 200 OK in 35ms (Views: 30.1ms | ActiveRecord: 1.2ms | Allocations: 932
   [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
   [1m[36mType Load (0.7ms)[0m  [1m[34mSELECT "types".* FROM "types"[0m
   [1m[36mProperty Load (0.8ms)[0m  [1m[34mSELECT "properties".* FROM "properties"[0m
+Started GET "/" for 127.0.0.1 at 2021-11-25 09:17:56 +0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 3.5ms | Allocations: 1129)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4284)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.1ms | Allocations: 4985)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2021-11-25 09:17:58 +0700
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  Rendered products/_properties_fields.html.erb (Duration: 2.1ms | Allocations: 462)
+  Rendered products/_types_fields.html.erb (Duration: 7.2ms | Allocations: 1319)
+  Rendered products/_form.html.erb (Duration: 23.2ms | Allocations: 4058)
+  Rendered products/new.html.erb within layouts/application (Duration: 23.9ms | Allocations: 4169)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 3.2ms | Allocations: 881)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 7931)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.4ms | Allocations: 8451)
+
+
+Started POST "/products" for 127.0.0.1 at 2021-11-25 09:20:08 +0700
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"sku"=>"764787589657", "title"=>"Iphone 13", "category_id"=>"1", "types_attributes"=>{"1637806696171"=>{"type_name"=>"Xanh", "properties_attributes"=>{"1637806705047"=>{"value"=>"128GB", "in_stock"=>"100", "_destroy"=>"false"}, "1637806712535"=>{"value"=>"256GB", "in_stock"=>"200", "_destroy"=>"false"}, "1637806722700"=>{"value"=>"64GB", "in_stock"=>"45", "_destroy"=>"false"}}, "_destroy"=>"false"}, "1637806736231"=>{"type_name"=>"Trắng", "properties_attributes"=>{"1637806747931"=>{"value"=>"128GB", "in_stock"=>"98", "_destroy"=>"false"}, "1637806776831"=>{"value"=>"64GB", "in_stock"=>"50", "_destroy"=>"false"}, "1637806786545"=>{"value"=>"256gb", "in_stock"=>"99", "_destroy"=>"false"}}, "_destroy"=>"false"}}, "price"=>"20000000", "quantity"=>"2000"}, "commit"=>"Create Product"}
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("sku", "price", "quantity", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "764787589657"], ["price", 20000000], ["quantity", 2000], ["created_at", "2021-11-25 02:20:08.339690"], ["updated_at", "2021-11-25 02:20:08.339690"], ["category_id", 1]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.3ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Xanh"], ["created_at", "2021-11-25 02:20:08.346355"], ["updated_at", "2021-11-25 02:20:08.346355"], ["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128GB"], ["in_stock", 100], ["created_at", "2021-11-25 02:20:08.350329"], ["updated_at", "2021-11-25 02:20:08.350329"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "256GB"], ["in_stock", 200], ["created_at", "2021-11-25 02:20:08.353661"], ["updated_at", "2021-11-25 02:20:08.353661"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64GB"], ["in_stock", 45], ["created_at", "2021-11-25 02:20:08.356326"], ["updated_at", "2021-11-25 02:20:08.356326"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.2ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Trắng"], ["created_at", "2021-11-25 02:20:08.359528"], ["updated_at", "2021-11-25 02:20:08.359528"], ["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128GB"], ["in_stock", 98], ["created_at", "2021-11-25 02:20:08.363255"], ["updated_at", "2021-11-25 02:20:08.363255"], ["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64GB"], ["in_stock", 50], ["created_at", "2021-11-25 02:20:08.365883"], ["updated_at", "2021-11-25 02:20:08.365883"], ["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "256gb"], ["in_stock", 99], ["created_at", "2021-11-25 02:20:08.370097"], ["updated_at", "2021-11-25 02:20:08.370097"], ["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/products/9
+Completed 302 Found in 49ms (ActiveRecord: 7.8ms | Allocations: 18206)
+
+
+Started GET "/products/9" for 127.0.0.1 at 2021-11-25 09:20:08 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/views/products/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/views/products/show.html.erb:27
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 10]]
+  ↳ app/views/products/show.html.erb:27
+  Rendered products/show.html.erb within layouts/application (Duration: 15.9ms | Allocations: 4557)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.9ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 8391)
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 1.0ms | Allocations: 9407)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:20:43 +0700
+Processing by ProductsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/products_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 39.5ms | Allocations: 25438)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 6.9ms | Allocations: 3954)
+  Rendered layout layouts/application.html.erb (Duration: 52.4ms | Allocations: 32582)
+Completed 200 OK in 60ms (Views: 50.3ms | ActiveRecord: 3.4ms | Allocations: 36687)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--890cd94a94823dcc82b378fbc64162eb6da7d968/download.jpeg" for 127.0.0.1 at 2021-11-25 09:20:43 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--890cd94a94823dcc82b378fbc64162eb6da7d968", "filename"=>"download"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+[36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: kw196tebg49nnx381e8xhbdxajwi (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQzLjE4MloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9a7d9d54ff540c162c6121244ff312f5d2f39278/download.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQzLjE4MloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9a7d9d54ff540c162c6121244ff312f5d2f39278/download.jpeg
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 2239)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQzLjE4MloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9a7d9d54ff540c162c6121244ff312f5d2f39278/download.jpeg" for 127.0.0.1 at 2021-11-25 09:20:43 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 474)
+
+
+Started DELETE "/products/9" for 127.0.0.1 at 2021-11-25 09:20:46 +0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"9"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 21]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 22]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Destroy (0.3ms)[0m  [1m[31mDELETE FROM "types" WHERE "types"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 23]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 24]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.2ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 25]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Destroy (0.1ms)[0m  [1m[31mDELETE FROM "types" WHERE "types"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProduct Destroy (0.2ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+Redirected to http://127.0.0.1:3000/products
+Completed 302 Found in 83ms (ActiveRecord: 9.9ms | Allocations: 31444)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:20:46 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 27.2ms | Allocations: 7409)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 3.6ms | Allocations: 968)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 11461)
+Completed 200 OK in 40ms (Views: 37.4ms | ActiveRecord: 1.4ms | Allocations: 12133)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ad2f626b3f3dc7bbbe4ce9a25ad7c898e97c5a78/apple.png" for 127.0.0.1 at 2021-11-25 09:20:46 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ad2f626b3f3dc7bbbe4ce9a25ad7c898e97c5a78", "filename"=>"apple"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: znrra5srqcvnunctabyj6xcpym00 (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbTV5Y21FMWMzSnhZM1p1ZFc1amRHRmllV28yZUdOd2VXMHdNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUFdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1Gd2NHeGxMbkJ1WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbllYQndiR1V1Y0c1bkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSU9hVzFoWjJVdmNHNW5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQ2LjQ0NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--fe9e91f2a405b54673025b329afa75cf5fe4a7c7/apple.png)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbTV5Y21FMWMzSnhZM1p1ZFc1amRHRmllV28yZUdOd2VXMHdNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUFdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1Gd2NHeGxMbkJ1WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbllYQndiR1V1Y0c1bkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSU9hVzFoWjJVdmNHNW5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQ2LjQ0NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--fe9e91f2a405b54673025b329afa75cf5fe4a7c7/apple.png
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 1533)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbTV5Y21FMWMzSnhZM1p1ZFc1amRHRmllV28yZUdOd2VXMHdNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUFdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1Gd2NHeGxMbkJ1WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbllYQndiR1V1Y0c1bkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSU9hVzFoWjJVdmNHNW5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQ2LjQ0NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--fe9e91f2a405b54673025b329afa75cf5fe4a7c7/apple.png" for 127.0.0.1 at 2021-11-25 09:20:46 +0700
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQzLjE4MloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9a7d9d54ff540c162c6121244ff312f5d2f39278/download.jpeg" for 127.0.0.1 at 2021-11-25 09:20:46 +0700
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"apple"}
+Processing by ActiveStorage::DiskController#show as JPEG
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 670)
+
+
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2021-11-25 09:20:47 +0700
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  Rendered products/_properties_fields.html.erb (Duration: 1.4ms | Allocations: 543)
+  Rendered products/_types_fields.html.erb (Duration: 4.4ms | Allocations: 1537)
+  Rendered products/_form.html.erb (Duration: 13.5ms | Allocations: 4347)
+  Rendered products/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 4462)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.7ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 8294)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.2ms | Allocations: 8775)
+
+
+Started POST "/products" for 127.0.0.1 at 2021-11-25 09:21:33 +0700
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"sku"=>"6358578578", "title"=>"Iphone 13", "category_id"=>"1", "types_attributes"=>{"1637806858599"=>{"type_name"=>"Đen", "properties_attributes"=>{"1637806864470"=>{"value"=>"256GB", "in_stock"=>"100", "_destroy"=>"false"}, "1637806872056"=>{"value"=>"128GB", "in_stock"=>"76", "_destroy"=>"false"}, "1637806880609"=>{"value"=>"64GB", "in_stock"=>"54", "_destroy"=>"false"}}, "_destroy"=>"false"}}, "price"=>"20000000", "quantity"=>"2000"}, "commit"=>"Create Product"}
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("sku", "price", "quantity", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "6358578578"], ["price", 20000000], ["quantity", 2000], ["created_at", "2021-11-25 02:21:33.958169"], ["updated_at", "2021-11-25 02:21:33.958169"], ["category_id", 1]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.2ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Đen"], ["created_at", "2021-11-25 02:21:33.963188"], ["updated_at", "2021-11-25 02:21:33.963188"], ["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "256GB"], ["in_stock", 100], ["created_at", "2021-11-25 02:21:33.966454"], ["updated_at", "2021-11-25 02:21:33.966454"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128GB"], ["in_stock", 76], ["created_at", "2021-11-25 02:21:33.969613"], ["updated_at", "2021-11-25 02:21:33.969613"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64GB"], ["in_stock", 54], ["created_at", "2021-11-25 02:21:33.973197"], ["updated_at", "2021-11-25 02:21:33.973197"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/products/9
+Completed 302 Found in 32ms (ActiveRecord: 6.2ms | Allocations: 12564)
+
+
+Started GET "/products/9" for 127.0.0.1 at 2021-11-25 09:21:33 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/views/products/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.2ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/views/products/show.html.erb:27
+  Rendered products/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2685)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.9ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 6514)
+Completed 200 OK in 23ms (Views: 19.5ms | ActiveRecord: 0.7ms | Allocations: 7522)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:21:39 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 6377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.3ms | Allocations: 958)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 10291)
+Completed 200 OK in 26ms (Views: 23.5ms | ActiveRecord: 1.0ms | Allocations: 10862)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQzLjE4MloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9a7d9d54ff540c162c6121244ff312f5d2f39278/download.jpeg" for 127.0.0.1 at 2021-11-25 09:21:39 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Started GET "/products/8" for 127.0.0.1 at 2021-11-25 09:21:41 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mType Load (0.2ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 8]]
+  ↳ app/views/products/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.2ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 7]]
+  ↳ app/views/products/show.html.erb:27
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 8]]
+  ↳ app/views/products/show.html.erb:27
+  Rendered products/show.html.erb within layouts/application (Duration: 15.7ms | Allocations: 4486)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.2ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 8321)
+Completed 200 OK in 29ms (Views: 22.7ms | ActiveRecord: 1.2ms | Allocations: 9323)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:22:20 +0700
+Processing by ProductsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/products_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 52.7ms | Allocations: 25661)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 8.2ms | Allocations: 3954)
+  Rendered layout layouts/application.html.erb (Duration: 67.1ms | Allocations: 32669)
+Completed 200 OK in 75ms (Views: 64.8ms | ActiveRecord: 4.1ms | Allocations: 36424)
+
+
+Started DELETE "/products/9" for 127.0.0.1 at 2021-11-25 09:22:22 +0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"9"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Load (0.2ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.3ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 21]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 22]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Destroy (0.3ms)[0m  [1m[31mDELETE FROM "types" WHERE "types"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (15.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+Redirected to http://127.0.0.1:3000/products
+Completed 302 Found in 69ms (ActiveRecord: 18.0ms | Allocations: 25206)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:22:22 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 22.2ms | Allocations: 7408)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.6ms | Allocations: 968)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 11460)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 1.2ms | Allocations: 12132)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQzLjE4MloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9a7d9d54ff540c162c6121244ff312f5d2f39278/download.jpeg" for 127.0.0.1 at 2021-11-25 09:22:22 +0700
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbTV5Y21FMWMzSnhZM1p1ZFc1amRHRmllV28yZUdOd2VXMHdNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUFdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1Gd2NHeGxMbkJ1WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbllYQndiR1V1Y0c1bkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSU9hVzFoWjJVdmNHNW5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQ2LjQ0NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--fe9e91f2a405b54673025b329afa75cf5fe4a7c7/apple.png" for 127.0.0.1 at 2021-11-25 09:22:22 +0700
+Processing by ActiveStorage::DiskController#show as PNG
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"apple"}
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 16ms (ActiveRecord: 0.0ms | Allocations: 921)
+
+
+Completed 200 OK in 8ms (ActiveRecord: 0.0ms | Allocations: 460)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2021-11-25 09:22:24 +0700
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  Rendered products/_properties_fields.html.erb (Duration: 1.3ms | Allocations: 546)
+  Rendered products/_types_fields.html.erb (Duration: 3.8ms | Allocations: 1545)
+  Rendered products/_form.html.erb (Duration: 12.8ms | Allocations: 4529)
+  Rendered products/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 4650)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.6ms | Allocations: 896)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 8604)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.2ms | Allocations: 9133)
+
+
+Started POST "/products" for 127.0.0.1 at 2021-11-25 09:23:13 +0700
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"sku"=>"35667474678", "title"=>"Iphone 13", "category_id"=>"1", "types_attributes"=>{"1637806957591"=>{"type_name"=>"Đen", "properties_attributes"=>{"1637806962155"=>{"value"=>"256GB", "in_stock"=>"98", "_destroy"=>"false"}, "1637806972126"=>{"value"=>"128GB", "in_stock"=>"44", "_destroy"=>"false"}}, "_destroy"=>"false"}}, "price"=>"20000000", "quantity"=>"2000"}, "commit"=>"Create Product"}
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("sku", "price", "quantity", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "35667474678"], ["price", 20000000], ["quantity", 2000], ["created_at", "2021-11-25 02:23:13.081175"], ["updated_at", "2021-11-25 02:23:13.081175"], ["category_id", 1]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.2ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Đen"], ["created_at", "2021-11-25 02:23:13.086621"], ["updated_at", "2021-11-25 02:23:13.086621"], ["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "256GB"], ["in_stock", 98], ["created_at", "2021-11-25 02:23:13.090508"], ["updated_at", "2021-11-25 02:23:13.090508"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128GB"], ["in_stock", 44], ["created_at", "2021-11-25 02:23:13.094915"], ["updated_at", "2021-11-25 02:23:13.094915"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/products/9
+Completed 302 Found in 31ms (ActiveRecord: 6.4ms | Allocations: 10974)
+
+
+Started GET "/products/9" for 127.0.0.1 at 2021-11-25 09:23:13 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/views/products/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/views/products/show.html.erb:27
+  Rendered products/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 3.2ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 6535)
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.7ms | Allocations: 7551)
+
+
+Started GET "/products/9/edit" for 127.0.0.1 at 2021-11-25 09:23:14 +0700
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  [1m[36mType Load (0.2ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/views/products/_form.html.erb:28
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/views/products/_types_fields.html.erb:8
+  Rendered products/_properties_fields.html.erb (Duration: 1.2ms | Allocations: 477)
+  Rendered products/_properties_fields.html.erb (Duration: 0.9ms | Allocations: 473)
+  Rendered products/_properties_fields.html.erb (Duration: 0.8ms | Allocations: 464)
+  Rendered products/_types_fields.html.erb (Duration: 7.9ms | Allocations: 3399)
+  Rendered products/_properties_fields.html.erb (Duration: 0.9ms | Allocations: 458)
+  Rendered products/_types_fields.html.erb (Duration: 3.5ms | Allocations: 1315)
+  Rendered products/_form.html.erb (Duration: 22.3ms | Allocations: 8260)
+  Rendered products/edit.html.erb within layouts/application (Duration: 22.9ms | Allocations: 8407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.2ms | Allocations: 873)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 12161)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 0.6ms | Allocations: 13163)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2021-11-25 09:23:19 +0700
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  Rendered products/_properties_fields.html.erb (Duration: 1.2ms | Allocations: 460)
+  Rendered products/_types_fields.html.erb (Duration: 3.4ms | Allocations: 1316)
+  Rendered products/_form.html.erb (Duration: 12.3ms | Allocations: 3931)
+  Rendered products/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 4042)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.1ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 7803)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.2ms | Allocations: 8270)
+
+
+Started POST "/products" for 127.0.0.1 at 2021-11-25 09:24:09 +0700
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"sku"=>"47467467", "title"=>"Iphone 11", "category_id"=>"1", "types_attributes"=>{"1637807006569"=>{"type_name"=>"Đen", "properties_attributes"=>{"1637807012878"=>{"value"=>"128GB", "in_stock"=>"123", "_destroy"=>"false"}, "1637807030279"=>{"value"=>"64GB", "in_stock"=>"56", "_destroy"=>"false"}}, "_destroy"=>"false"}}, "price"=>"20", "quantity"=>"2000"}, "commit"=>"Create Product"}
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "products" ("sku", "price", "quantity", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "47467467"], ["price", 20], ["quantity", 2000], ["created_at", "2021-11-25 02:24:09.811995"], ["updated_at", "2021-11-25 02:24:09.811995"], ["category_id", 1]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.3ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Đen"], ["created_at", "2021-11-25 02:24:09.818812"], ["updated_at", "2021-11-25 02:24:09.818812"], ["product_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128GB"], ["in_stock", 123], ["created_at", "2021-11-25 02:24:09.823138"], ["updated_at", "2021-11-25 02:24:09.823138"], ["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64GB"], ["in_stock", 56], ["created_at", "2021-11-25 02:24:09.826328"], ["updated_at", "2021-11-25 02:24:09.826328"], ["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/products/10
+Completed 302 Found in 36ms (ActiveRecord: 7.8ms | Allocations: 10339)
+
+
+Started GET "/products/10" for 127.0.0.1 at 2021-11-25 09:24:09 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 10]]
+  ↳ app/views/products/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.2ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 10]]
+  ↳ app/views/products/show.html.erb:27
+  Rendered products/show.html.erb within layouts/application (Duration: 10.2ms | Allocations: 2653)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.9ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 6488)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.7ms | Allocations: 7496)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:24:14 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 20.1ms | Allocations: 6429)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.9ms | Allocations: 958)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 10343)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 1.2ms | Allocations: 10934)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjI1OjQzLjE4MloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--9a7d9d54ff540c162c6121244ff312f5d2f39278/download.jpeg" for 127.0.0.1 at 2021-11-25 09:24:14 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2021-11-25 09:25:18 +0700
+Processing by ProductsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/products_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  Rendered products/_properties_fields.html.erb (Duration: 0.8ms | Allocations: 611)
+  Rendered products/_types_fields.html.erb (Duration: 9.0ms | Allocations: 6488)
+  Rendered products/_form.html.erb (Duration: 34.2ms | Allocations: 17844)
+  Rendered products/new.html.erb within layouts/application (Duration: 34.6ms | Allocations: 17974)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.6ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 21926)
+Completed 200 OK in 58ms (Views: 41.5ms | ActiveRecord: 3.0ms | Allocations: 29358)
+
+
+Started POST "/products" for 127.0.0.1 at 2021-11-25 09:27:02 +0700
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"sku"=>"36858578578", "title"=>"Iphone 12", "category_id"=>"1", "types_attributes"=>{"1637807135403"=>{"type_name"=>"Đen", "properties_attributes"=>{"1637807147813"=>{"value"=>"128 GB", "in_stock"=>"132", "_destroy"=>"false"}, "1637807177204"=>{"value"=>"64 GB", "in_stock"=>"56", "_destroy"=>"false"}}, "_destroy"=>"false"}, "1637807186202"=>{"type_name"=>"Trắng", "properties_attributes"=>{"1637807191718"=>{"value"=>"128 GB", "in_stock"=>"34", "_destroy"=>"false"}, "1637807198999"=>{"value"=>"64GB", "in_stock"=>"23", "_destroy"=>"false"}}, "_destroy"=>"false"}}, "price"=>"20000000", "quantity"=>"2000"}, "commit"=>"Create Product"}
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("sku", "price", "quantity", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "36858578578"], ["price", 20000000], ["quantity", 2000], ["created_at", "2021-11-25 02:27:02.956288"], ["updated_at", "2021-11-25 02:27:02.956288"], ["category_id", 1]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.2ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Đen"], ["created_at", "2021-11-25 02:27:02.961327"], ["updated_at", "2021-11-25 02:27:02.961327"], ["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128 GB"], ["in_stock", 132], ["created_at", "2021-11-25 02:27:02.964488"], ["updated_at", "2021-11-25 02:27:02.964488"], ["type_id", 11]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64 GB"], ["in_stock", 56], ["created_at", "2021-11-25 02:27:02.968623"], ["updated_at", "2021-11-25 02:27:02.968623"], ["type_id", 11]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.2ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Trắng"], ["created_at", "2021-11-25 02:27:02.973011"], ["updated_at", "2021-11-25 02:27:02.973011"], ["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128 GB"], ["in_stock", 34], ["created_at", "2021-11-25 02:27:02.976063"], ["updated_at", "2021-11-25 02:27:02.976063"], ["type_id", 12]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64GB"], ["in_stock", 23], ["created_at", "2021-11-25 02:27:02.979298"], ["updated_at", "2021-11-25 02:27:02.979298"], ["type_id", 12]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/products/11
+Completed 302 Found in 41ms (ActiveRecord: 6.8ms | Allocations: 15711)
+
+
+Started GET "/products/11" for 127.0.0.1 at 2021-11-25 09:27:02 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mType Load (0.3ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 11]]
+  ↳ app/views/products/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.3ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 11]]
+  ↳ app/views/products/show.html.erb:27
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 12]]
+  ↳ app/views/products/show.html.erb:27
+  Rendered products/show.html.erb within layouts/application (Duration: 27.6ms | Allocations: 9285)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.9ms | Allocations: 949)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 13209)
+Completed 200 OK in 39ms (Views: 34.3ms | ActiveRecord: 1.6ms | Allocations: 14496)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:27:08 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 6539)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 9.6ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 10271)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 1.1ms | Allocations: 10936)
+
+
+Started DELETE "/products/11" for 127.0.0.1 at 2021-11-25 09:27:12 +0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"11"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 11]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 11]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.4ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 24]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 25]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 11], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Destroy (0.3ms)[0m  [1m[31mDELETE FROM "types" WHERE "types"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 12]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 26]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 27]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Destroy (0.2ms)[0m  [1m[31mDELETE FROM "types" WHERE "types"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProduct Destroy (0.2ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+Redirected to http://127.0.0.1:3000/products
+Completed 302 Found in 62ms (ActiveRecord: 17.2ms | Allocations: 18057)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:27:12 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 38.4ms | Allocations: 18279)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.8ms | Allocations: 985)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 22640)
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 2.3ms | Allocations: 23343)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--890cd94a94823dcc82b378fbc64162eb6da7d968/download.jpeg" for 127.0.0.1 at 2021-11-25 09:27:13 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--890cd94a94823dcc82b378fbc64162eb6da7d968", "filename"=>"download"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: kw196tebg49nnx381e8xhbdxajwi (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjEzLjA0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--671ad98ba33a4642cd5e23436d3e46d2afcf53ae/download.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjEzLjA0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--671ad98ba33a4642cd5e23436d3e46d2afcf53ae/download.jpeg
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 2193)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjEzLjA0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--671ad98ba33a4642cd5e23436d3e46d2afcf53ae/download.jpeg" for 127.0.0.1 at 2021-11-25 09:27:13 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 474)
+
+
+Started DELETE "/products/10" for 127.0.0.1 at 2021-11-25 09:27:15 +0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"10"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 10]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (7.5ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 22]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 23]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Destroy (0.2ms)[0m  [1m[31mDELETE FROM "types" WHERE "types"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (15.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+Redirected to http://127.0.0.1:3000/products
+Completed 302 Found in 125ms (ActiveRecord: 23.9ms | Allocations: 13002)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:27:15 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 6482)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.7ms | Allocations: 966)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 10528)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 1.0ms | Allocations: 11158)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjEzLjA0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--671ad98ba33a4642cd5e23436d3e46d2afcf53ae/download.jpeg" for 127.0.0.1 at 2021-11-25 09:27:15 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Started DELETE "/products/9" for 127.0.0.1 at 2021-11-25 09:27:17 +0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"9"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Load (0.1ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.4ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProperty Destroy (0.1ms)[0m  [1m[31mDELETE FROM "properties" WHERE "properties"."id" = ?[0m  [["id", 21]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mType Destroy (0.2ms)[0m  [1m[31mDELETE FROM "types" WHERE "types"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mProduct Destroy (0.2ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (14.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:48:in `destroy'
+Redirected to http://127.0.0.1:3000/products
+Completed 302 Found in 48ms (ActiveRecord: 16.4ms | Allocations: 12092)
+
+
+Started GET "/products" for 127.0.0.1 at 2021-11-25 09:27:17 +0700
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 3], ["OFFSET", 0]]
+  ↳ app/views/products/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  ↳ app/views/products/index.html.erb:36
+  Rendered products/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 7300)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.9ms | Allocations: 958)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 11206)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 1.2ms | Allocations: 11781)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ad2f626b3f3dc7bbbe4ce9a25ad7c898e97c5a78/apple.png" for 127.0.0.1 at 2021-11-25 09:27:18 +0700
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ad2f626b3f3dc7bbbe4ce9a25ad7c898e97c5a78", "filename"=>"apple"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: znrra5srqcvnunctabyj6xcpym00 (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbTV5Y21FMWMzSnhZM1p1ZFc1amRHRmllV28yZUdOd2VXMHdNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUFdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1Gd2NHeGxMbkJ1WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbllYQndiR1V1Y0c1bkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSU9hVzFoWjJVdmNHNW5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjE4LjAzNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--95e8355417aef0f10a018f0253080c54d4a8b1d9/apple.png)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbTV5Y21FMWMzSnhZM1p1ZFc1amRHRmllV28yZUdOd2VXMHdNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUFdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1Gd2NHeGxMbkJ1WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbllYQndiR1V1Y0c1bkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSU9hVzFoWjJVdmNHNW5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjE4LjAzNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--95e8355417aef0f10a018f0253080c54d4a8b1d9/apple.png
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1514)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbTV5Y21FMWMzSnhZM1p1ZFc1amRHRmllV28yZUdOd2VXMHdNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUFdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1Gd2NHeGxMbkJ1WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbllYQndiR1V1Y0c1bkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSU9hVzFoWjJVdmNHNW5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjE4LjAzNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--95e8355417aef0f10a018f0253080c54d4a8b1d9/apple.png" for 127.0.0.1 at 2021-11-25 09:27:18 +0700
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"apple"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhM2N4T1RaMFpXSm5ORGx1Ym5nek9ERmxPSGhvWW1SNFlXcDNhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SdmQyNXNiMkZrTG1wd1pXY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJ2ZDI1c2IyRmtMbXB3WldjR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIxLTExLTI1VDAyOjMyOjEzLjA0MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--671ad98ba33a4642cd5e23436d3e46d2afcf53ae/download.jpeg" for 127.0.0.1 at 2021-11-25 09:27:18 +0700
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"download"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2021-11-25 09:27:49 +0700
+Processing by ProductsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/products_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  Rendered products/_properties_fields.html.erb (Duration: 0.8ms | Allocations: 611)
+  Rendered products/_types_fields.html.erb (Duration: 8.1ms | Allocations: 6487)
+  Rendered products/_form.html.erb (Duration: 24.7ms | Allocations: 17821)
+  Rendered products/new.html.erb within layouts/application (Duration: 25.1ms | Allocations: 17952)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.0ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 21904)
+Completed 200 OK in 44ms (Views: 31.1ms | ActiveRecord: 2.2ms | Allocations: 29657)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-25 09:27:51 +0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.7ms | Allocations: 1129)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4286)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 5058)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2021-11-25 09:27:52 +0700
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/products/_form.html.erb:24
+  Rendered products/_properties_fields.html.erb (Duration: 1.5ms | Allocations: 462)
+  Rendered products/_types_fields.html.erb (Duration: 5.3ms | Allocations: 1319)
+  Rendered products/_form.html.erb (Duration: 15.5ms | Allocations: 4057)
+  Rendered products/new.html.erb within layouts/application (Duration: 16.2ms | Allocations: 4168)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 3.2ms | Allocations: 881)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 7930)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.2ms | Allocations: 8452)
+
+
+Started POST "/products" for 127.0.0.1 at 2021-11-25 09:29:27 +0700
+Processing by ProductsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"sku"=>"2566735745", "title"=>"iphone 13", "category_id"=>"1", "types_attributes"=>{"1637807283798"=>{"type_name"=>"Đen", "properties_attributes"=>{"1637807292013"=>{"value"=>"128GB", "in_stock"=>"100", "_destroy"=>"false"}, "1637807304991"=>{"value"=>"64GB", "in_stock"=>"42", "_destroy"=>"false"}}, "_destroy"=>"false"}, "1637807317451"=>{"type_name"=>"Trắng", "properties_attributes"=>{"1637807327498"=>{"value"=>"128GB", "in_stock"=>"100", "_destroy"=>"false"}, "1637807337388"=>{"value"=>"64GB", "in_stock"=>"34", "_destroy"=>"false"}}, "_destroy"=>"false"}}, "price"=>"200000000", "quantity"=>"2000"}, "commit"=>"Create Product"}
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+[31mUnpermitted parameter: :_destroy[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProduct Create (6.4ms)[0m  [1m[32mINSERT INTO "products" ("sku", "title", "price", "quantity", "created_at", "updated_at", "category_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "2566735745"], ["title", "Iphone 13"], ["price", 200000000], ["quantity", 2000], ["created_at", "2021-11-25 02:29:27.642012"], ["updated_at", "2021-11-25 02:29:27.642012"], ["category_id", 1]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.3ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Đen"], ["created_at", "2021-11-25 02:29:27.654191"], ["updated_at", "2021-11-25 02:29:27.654191"], ["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128GB"], ["in_stock", 100], ["created_at", "2021-11-25 02:29:27.658154"], ["updated_at", "2021-11-25 02:29:27.658154"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64GB"], ["in_stock", 42], ["created_at", "2021-11-25 02:29:27.661545"], ["updated_at", "2021-11-25 02:29:27.661545"], ["type_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mType Create (0.1ms)[0m  [1m[32mINSERT INTO "types" ("type_name", "created_at", "updated_at", "product_id") VALUES (?, ?, ?, ?)[0m  [["type_name", "Trắng"], ["created_at", "2021-11-25 02:29:27.664175"], ["updated_at", "2021-11-25 02:29:27.664175"], ["product_id", 9]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.1ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "128GB"], ["in_stock", 100], ["created_at", "2021-11-25 02:29:27.666538"], ["updated_at", "2021-11-25 02:29:27.666538"], ["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mProperty Create (0.2ms)[0m  [1m[32mINSERT INTO "properties" ("value", "in_stock", "created_at", "updated_at", "type_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", "64GB"], ["in_stock", 34], ["created_at", "2021-11-25 02:29:27.670236"], ["updated_at", "2021-11-25 02:29:27.670236"], ["type_id", 10]]
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/products/9
+Completed 302 Found in 44ms (ActiveRecord: 12.7ms | Allocations: 15885)
+
+
+Started GET "/products/9" for 127.0.0.1 at 2021-11-25 09:29:27 +0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:57:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mType Load (0.2ms)[0m  [1m[34mSELECT "types".* FROM "types" WHERE "types"."product_id" = ?[0m  [["product_id", 9]]
+  ↳ app/views/products/show.html.erb:24
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 9], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.2ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 9]]
+  ↳ app/views/products/show.html.erb:27
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 10], ["record_type", "Type"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:26
+  [1m[36mProperty Load (0.1ms)[0m  [1m[34mSELECT "properties".* FROM "properties" WHERE "properties"."type_id" = ?[0m  [["type_id", 10]]
+  ↳ app/views/products/show.html.erb:27
+  Rendered products/show.html.erb within layouts/application (Duration: 25.0ms | Allocations: 9296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/home/_header.html.erb:20
+  Rendered home/_header.html.erb (Duration: 2.9ms | Allocations: 949)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 13219)
+Completed 200 OK in 40ms (Views: 34.4ms | ActiveRecord: 1.6ms | Allocations: 14482)
+
+
