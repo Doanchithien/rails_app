@@ -5,7 +5,7 @@ ruby '3.0.1'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem "cocoon"
-
+gem 'bcrypt', '~> 3.1.7'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

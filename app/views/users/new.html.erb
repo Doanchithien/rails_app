@@ -1,0 +1,39 @@
+<div class ="container">
+<%= form_for @user do |form|%>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %></h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field form-group">
+    <%= form.label :Email %>
+    <%= form.text_field :email, placeholder: "example@mail.com" , class:"form-control" %>
+</div>
+<div class="field form-group">
+    <%= form.label :Password%>
+    <%= form.password_field :password , placeholder: "Password at least six characters", class:"form-control"%>
+</div>
+<div class="field form-group">
+     <%= form.label "Confirm password"%>
+    <%= form.password_field :password_confirmation, placeholder: "Confirm", class:"form-control"%>
+</div>
+<div class="field form-group">
+    <%= form.label :Birthday%>
+    <%= form.date_field :birthday, class:"form-control"%>
+</div>
+<div class="field form-group">
+    <%= form.label :Phone%>
+    <%= form.text_field :phone, placeholder: "Your phone" , class:"form-control"%>
+</div>
+<div class= "actions">
+    <%= form.submit "Sign up",  class:"btn btn-primary"%>
+</div>
+<%end%>
+</div>

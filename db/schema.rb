@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_074016) do
+ActiveRecord::Schema.define(version: 2021_11_30_074458) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 2021_11_24_074016) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "product_id"
     t.index ["product_id"], name: "index_types_on_product_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.date "birthday"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_confirmation"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

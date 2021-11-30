@@ -17,7 +17,22 @@
   </head>
   <body>
      <%= render "home/header"%>
-     <%= yield %>
+    <div class="container">
+     <% flash.each do |key, value| %>
+        <div id="flash" class="alert alert-<%= key %>">
+          <%= sanitize(value) %>
+          <a href="#" data-dismiss="alert">×</a>
+        </div>
+     <% end %>
+    </div>
+    <%= yield %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      setTimeout(function(){
+       $('#flash').remove();
+      }, 10000);
+    })
+  </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
